@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist List</title>
+</head>
+<body>
+    <h1>Artist List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Group</th>
+            </tr>
+        </thead>        
+        <tbody>
+            <tr th:each="artist, iterStat : ${artists}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${artist.artistId}"></td>
+                <td th:text="${artist.artistName}"></td>
+                <td th:text="${artist.debutDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
