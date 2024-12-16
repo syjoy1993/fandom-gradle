@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+
+</head>
+<body>
+
+<!-- 동적 텍스트 -->
+<div id="welcome"></div>
+
+<script>
+    async function showWelcomeMessages() {
+        const text = "WELCOME!";
+        const koreanText = "☺ 기다렸다구~❤";
+        const container = document.getElementById("welcome");
+
+        // 첫 번째 텍스트 표시
+        await displayText(container, text);
+
+        // 두 번째 텍스트 표시
+        await delay(1000); // 약간의 딜레이 추가
+        await displayText(container, koreanText);
+    }
+
+    // 텍스트 표시 함수
+    function displayText(container, text) {
+        return new Promise(resolve => {
+            container.innerHTML = ""; // 기존 텍스트 제거
+            text.split("").forEach((letter, index) => {
+                const span = document.createElement("span");
+                span.textContent = letter;
+                span.className = "letter";
+                span.style.animationDelay = `${index * 0.2}s`;
+                container.appendChild(span);
+            });
+            // 모든 애니메이션이 끝난 후 resolve 호출
+            const totalTime = text.length * 200; // 한 글자당 0.2초
+            setTimeout(resolve, totalTime);
+        });
+    }
+
+    // 딜레이 함수
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // 메시지 표시 시작
+    showWelcomeMessages();
+</script>
+
+<div id="auth-container">
+    <section id="loginform" th:id="loginform">
+        <h2> 😊 Sign in 😊</h2>
+        <form method="post" action="/login">
+            <div class="fields">
+                <div class="field half">
+                    <label for="id">User ID</label>
+                    <input type="text" name="id" id="id" placeholder="id" required />
+                </div>
+                <div class="field half">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="password" required />
+                </div>
+            </div>
+            <ul class="actions">
+                <li><input type="submit" value="LOGIN" class="primary" /></li>
+            </ul>
+        </form>
+    </section>
+
+    <div id="signup-section" th:id="signup-section">
+        <a href="/signup" class="button secondary">SIGN UP</a>
+    </div>
+</div>
+</body>
+</html>

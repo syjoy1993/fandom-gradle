@@ -57,6 +57,13 @@ public class CommonController {
             return "login";
         }
     }
+    //todo : 체크 -> 맞음!
+    @GetMapping("/signup")
+    public String showSignupForm(Model model) {
+        model.addAttribute("regReq", new RegistryRequest());
+        return "register"; // View 이름: register.html로 이동
+    }
+
 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
@@ -67,7 +74,7 @@ public class CommonController {
         model.addAttribute("validationErrors", new HashMap<String, String>()); // 초기 validationErrors 추가
         return "register";
     }
-
+//todo : bindingresult : 리펠토링 필요
     @PostMapping("/register")
     public String registerUser(@Valid @ModelAttribute RegistryRequest regReq, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+	<style>
+
+	    .errordiv {
+	        margin-bottom: 3em;
+	        padding: 0; /* 내부 여백 추가 */
+	        display: block; /* 블록 요소로 설정 */
+	        width: 100%; /* 부모 요소의 전체 너비를 차지 */
+	        box-sizing: border-box; /* padding 포함 */
+	        overflow: visible; /* 텍스트가 잘리지 않도록 설정 */
+	    }
+	
+	    .error {
+	        color: red;
+	        font-size: 0.9em;
+	        margin-bottom: 0;
+	        white-space: normal; /* 글씨가 잘리지 않도록 설정 */
+	        word-wrap: break-word; /* 긴 단어를 줄바꿈 */
+	        overflow-wrap: break-word; /* overflow 시 줄바꿈 */
+	        width: 100%; /* 에러 메시지가 부모의 너비를 따라가도록 설정 */
+	        text-align: left; /* 왼쪽 정렬 */
+	    }
+	    
+        body {
+			margin : 0;
+            display: block;
+            overflow-y: scroll;
+        }
+
+		#header {
+			padding : 0;
+			margin-bottom: 2em;
+			background-color: rgba(255, 255, 255, 33%);
+		}
+		
+		#header .logo {
+			margin : 1em 1em 1em 1em;
+		}
+		
+        body {
+            display: block;
+            overflow-y: scroll;
+        }
+
+        .form-container {
+            font-size: 10pt;
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+        }
+        
+        
+        .posts-container {
+            width: 500px;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(245, 245, 245, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+		</style>		
+</head>
+<body>
+	    <header th:replace="~{fragments/header :: header}"></header>
+<div id="auth-container">
+    <section id="loginform" th:id="loginform">
+        <h2>Register</h2>
+
+        <form th:action="@{/register}" method="post" th:object="${regReq}">
+            <div class="fields">
+                <div class="field half">
+                    <label for="id">User Name:</label>
+                    <input type="text" name="id" id="id" th:field="*{userName}" placeholder="id" required />
+     
+                </div>
+                <div class="field half">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" th:field="*{password}" placeholder="password" required />
+              
+                  
+                </div>
+               </div>
+             
+              <div class="errordiv"><p class="error" th:if="${validationErrors != null and validationErrors.containsKey('userName')}" th:text="${validationErrors['userName']}"></p>
+                  <p class="error" th:if="${validationErrors != null and validationErrors.containsKey('password')}" th:text="${validationErrors['password']}"></p>
+            </div>
+            <div class="fields">
+                <div class="field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" th:field="*{email}" placeholder="Enter your email" required />
+                    
+                    
+                </div>
+                <p class="error" th:if="${validationErrors != null and validationErrors.containsKey('email')}" th:text="${validationErrors['email']}"></p>
+            </div>
+            <div class="fields">
+                <div class="field">
+                    <label for="fandomName">Favorite Fandom:</label>
+                    <select id="fandomName" th:field="*{fandomName}" required>
+                        <option value="" disabled selected>Select your fandom</option>
+                        <option th:each="fandom : ${fandoms}" th:value="${fandom.fandomName}" th:text="${fandom.fandomName}"></option>
+                    </select>
+                   
+                    <p class="error" th:if="${validationErrors != null and validationErrors.containsKey('fandomName')}" th:text="${validationErrors['fandomName']}"></p>
+                </div>
+            </div>
+            <div id="error-message" th:if="${errorMessage}">
+                <p th:text="${errorMessage}"></p>
+            </div>
+            <ul class="actions">
+                <li><input type="submit" value="Sign Up" class="primary" /></li>
+            </ul>
+        </form>
+    </section>
+</div>
+</body>
+</html>
