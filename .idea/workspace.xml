@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eaf812a-636b-4deb-aa4f-a1cfeb9a87c4" name="Changes" comment="일부ã작업 변경 ㅎãmaven -&gt; gradle ë³변경" />
+    <list default="true" id="3eaf812a-636b-4deb-aa4f-a1cfeb9a87c4" name="Changes" comment="일부ã작업 변경 ㅎãmaven -&gt; gradle ë³변경">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team5/fandom/controller/CommonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team5/fandom/controller/CommonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team5/fandom/entity/value/Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team5/fandom/entity/value/Tag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team5/fandom/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team5/fandom/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/controller/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team5/fandom/controller/CommonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/entity/value/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team5/fandom/entity/value/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/out/production/fandom/com/team5/fandom/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/out/production/fandom/com/team5/fandom/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/out/production/fandom/com/team5/fandom/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/out/production/fandom/com/team5/fandom/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/out/production/fandom/com/team5/fandom/fandom.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team5/fandom/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team5/fandom/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,6 +97,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\syjoy\PROJECT\gradle\src\main\resources\templates" />
       <recent name="C:\Users\syjoy\PROJECT\gradle\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.team5.fandom.entity" />
     </key>
   </component>
   <component name="RunManager">

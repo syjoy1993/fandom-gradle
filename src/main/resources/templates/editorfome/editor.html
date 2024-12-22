@@ -18,6 +18,19 @@
     <!-- 게시글 작성 폼 -->
     <!-- fandom_id를 경로에 포함시키는 부분 -->
     <form id="post-form" th:action="@{/f/c/{fandom_id}/p/new(fandom_id=${fandom_id})}" method="post">
+       <!-- Spring Security는 기본적으로 CSRF 방어 :CSRF 토큰이 없거나 잘못된 경우 요청이 차단
+        해결방안 : 1. CSRF 토큰을 HTML 폼에 포함
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        해결방안 : 2. Spring Security에서 특정 URL에 대해 CSRF 검사를 비활성화
+        @Override
+protected void configure(HttpSecurity http) throws Exception {
+    http.csrf()
+        .ignoringAntMatchers("/f/c/**/p/new"); // 특정 URL CSRF 예외 처리
+}
+
+        -->
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <!-- 제목 입력 -->
         <input type="text" name="title" placeholder="제목을 입력하세요" class="title-input" required>
 
