@@ -21,4 +21,7 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     @Override
     <S extends Post> Optional<S> findOne(Example<S> example);
+
+    @Override
+    void deleteAllById(Iterable<? extends Integer> integers);
 }
