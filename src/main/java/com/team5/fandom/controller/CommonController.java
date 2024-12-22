@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,7 @@ import java.util.Map;
 public class CommonController {
     private final CommonService commonService;
     private final FandomService fandomService;
+    private final PasswordEncoder passwordEncoder;
 
 
     @GetMapping("/")
@@ -102,7 +104,8 @@ public class CommonController {
 
             UserDto userDto = UserDto.builder()
                     .userName(regReq.getUserName())
-                    .password(regReq.getPassword())
+                    .password(passwordEncoder.encode(regReq.getPassword())) //암호화 적용
+//                    .password(regReq.getPassword())
                     .email(regReq.getEmail())
                     .fandomDto(fandomService.getByFandomName(regReq.getFandomName()))
                     .build();
