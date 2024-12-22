@@ -39,18 +39,18 @@ time, mark, audio, video {
 
 /* 공통 스타일 */
 body {
-	margin: 30px;
+	margin: 0px;
 	overflow: hidden;
 	background: linear-gradient(120deg, rgba(170, 134, 197, 0.68), #ffe1fe);
 	animation: backgroundMove 10s infinite linear;
-	display: flex;
+	display: block;
+	overflow-y: scroll;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
 	color: rgba(12, 99, 112, 0.38);
 	font-family: Arial, sans-serif;
 }
-
 
 
 /* 배경 애니메이션 */
@@ -169,9 +169,6 @@ input, select, textarea {
 
 /* Basic */
 
-	@-ms-viewport {
-		width: device-width;
-	}
 
 	body {
 		-ms-overflow-style: scrollbar;
@@ -2923,20 +2920,25 @@ input, select, textarea {
 
 /* Header */
 
+
 	#header {
-		padding: 8em 0 0.1em 0 ;
+		padding : 0;
+		margin-bottom: 2em;
+		background-color: rgba(255, 255, 255, 33%);
 	}
 
+
 		#header .logo {
+
+			margin : 1em 1em 1em 1em;
 			display: block;
 			border-bottom: 0;
 			color: inherit;
 			font-weight: 900;
 			letter-spacing: 0.35em;
-			margin: 0 0 2.5em 0;
 			text-decoration: none;
 			text-transform: uppercase;
-			display: inline-block;
+
 		}
 
 			#header .logo > * {

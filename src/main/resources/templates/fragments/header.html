@@ -1,18 +1,26 @@
-
 <header id="header" th:fragment="header">
-    <div class="inner">
+    <div class="inner" style="display: flex; justify-content: space-between; align-items: center;">
 
         <!-- Logo -->
-        <a th:href="@{/}" class="logo">
-            <span class="symbol"><img th:src="@{/images/logo.svg}" alt="Logo"  /></span><span class="title">Phantom</span>
+        <a th:href="@{/}" class="logo" style="display: flex; align-items: center;">
+            <span class="symbol" style="margin-right: 8px;"><img th:src="@{/images/logo.svg}" alt="Logo" /></span>
+            <span class="title">Fandoms</span>
         </a>
 
-        <!-- Nav -->
-        <nav>
-            <ul>
-                <li><a href="#menu">Menu</a></li>
-            </ul>
-        </nav>
+        <!-- Left Section: Artist List and Fandom Board -->
+        <div style="display: flex; gap: 10px;">
+            <button onclick="location.href='/f/c/10/p'">게시판 바로가기</button>
+            <button onclick="location.href='/f/a'">아티스트/팬덤 바로가기</button>
+            <button onclick="location.href='/f/c'">팬덤 순위</button>
+        </div>
+
+        <!-- Right Section: User Information -->
+        <div>
+            <div th:if="${loggedIn}" style="display: flex; align-items: center; gap: 10px;">
+                <span th:text="${userName}" style="font-weight: bold;"></span>
+                <button onclick="location.href='/logout'">로그아웃</button>
+            </div>
+        </div>
 
     </div>
 </header>
