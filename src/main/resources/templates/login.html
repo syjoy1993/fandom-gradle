@@ -4,76 +4,129 @@
     <title>Login</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <style>
+        /* 중앙 정렬 */
+        body {
+            margin : 0;
+            display: block;
+            overflow-y: scroll;
+        }
+
+        #header {
+            padding : 0;
+            margin-bottom: 2em;
+            background-color: rgba(255, 255, 255, 33%);
+        }
+
+        #header .logo {
+            margin : 1em 1em 1em 1em;
+        }
+        /* Fandoms 텍스트 중앙 정렬 */
+        #auth-container h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        input {
+            background-color: transparent;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        /* 로그인 버튼 스타일 */
+        .actions {
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .actions li {
+            list-style: none;
+        }
+
+        .actions li input.primary {
+            padding: 10px 50px 20px 50px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* 회원가입 텍스트 스타일 */
+        #signup-section {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #signup-section p {
+            font-size: 16px;
+            margin : 0;
+        }
+
+        #signup-section p a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #signup-section p a:hover {
+            text-decoration: underline;
+        }
+    </style>
 
 </head>
 <body>
-
+<header th:replace="~{fragments/header :: header}"></header>
 <!-- 동적 텍스트 -->
 <div id="welcome"></div>
 
-<script>
-    async function showWelcomeMessages() {
-        const text = "WELCOME!";
-        const koreanText = "☺ 기다렸다구~❤";
-        const container = document.getElementById("welcome");
-
-        // 첫 번째 텍스트 표시
-        await displayText(container, text);
-
-        // 두 번째 텍스트 표시
-        await delay(1000); // 약간의 딜레이 추가
-        await displayText(container, koreanText);
-    }
-
-    // 텍스트 표시 함수
-    function displayText(container, text) {
-        return new Promise(resolve => {
-            container.innerHTML = ""; // 기존 텍스트 제거
-            text.split("").forEach((letter, index) => {
-                const span = document.createElement("span");
-                span.textContent = letter;
-                span.className = "letter";
-                span.style.animationDelay = `${index * 0.2}s`;
-                container.appendChild(span);
-            });
-            // 모든 애니메이션이 끝난 후 resolve 호출
-            const totalTime = text.length * 200; // 한 글자당 0.2초
-            setTimeout(resolve, totalTime);
-        });
-    }
-
-    // 딜레이 함수
-    function delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    // 메시지 표시 시작
-    showWelcomeMessages();
-</script>
-
 <div id="auth-container">
     <section id="loginform" th:id="loginform">
-        <h2> 😊 Sign in 😊</h2>
-        <form method="post" action="/login">
+        <h2>Fandoms</h2>
+        <form method="post" action="/login" onsubmit="return validateLoginForm()">
             <div class="fields">
-                <div class="field half">
-                    <label for="id">User ID</label>
-                    <input type="text" name="id" id="id" placeholder="id" required />
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="email" required />
                 </div>
-                <div class="field half">
+            </div>
+            <div class="fields">
+                <div class="field">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="password" required />
                 </div>
             </div>
+
             <ul class="actions">
-                <li><input type="submit" value="LOGIN" class="primary" /></li>
+                <li><input type="submit" value="Login" class="primary" /></li>
             </ul>
+            <div id="signup-section" th:id="signup-section">
+                <p><a href="/register">아이디가 없으신가요?</a></p>
+            </div>
         </form>
     </section>
 
-    <div id="signup-section" th:id="signup-section">
-        <a href="/register" class="button secondary">SIGN UP</a>
-    </div>
+
 </div>
+
+<script>
+    // 간단한 클라이언트 측 로그인 유효성 검사
+    function validateLoginForm() {
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (email === "" || password === "") {
+            alert("모든 필드를 채워주세요!");
+            return false;
+        }
+
+        return true; // 유효성 검사가 성공하면 폼 제출 허용
+    }
+</script>
+
 </body>
 </html>
