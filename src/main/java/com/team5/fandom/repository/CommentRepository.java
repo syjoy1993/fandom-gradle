@@ -21,5 +21,6 @@ public interface CommentRepository extends JpaRepository<Comment,Integer> {
 
     List<Comment> findAllByOrderByCommentIdAsc();
 
+    List<Comment> findCommentByCommentContentBefore();
 
 }
