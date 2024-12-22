@@ -2,13 +2,14 @@ package com.team5.fandom.controller.rto.request;
 
 import com.team5.fandom.entity.Post;
 import com.team5.fandom.entity.User;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class CommentReq {
 
     private Integer commentId;

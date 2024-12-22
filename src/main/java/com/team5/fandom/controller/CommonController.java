@@ -67,7 +67,7 @@ public class CommonController {
 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
-        RegistryRequest regReq = new RegistryRequest(); // 객체 생성
+        RegistryRequest regReq = RegistryRequest.builder().build(); // 객체 생성
         List<FandomDto> fandoms = fandomService.getAllFandoms();
         model.addAttribute("fandoms", fandoms);
         model.addAttribute("regReq", regReq); // Model에 추가

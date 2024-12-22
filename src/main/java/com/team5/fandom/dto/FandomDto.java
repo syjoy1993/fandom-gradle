@@ -4,12 +4,12 @@ import com.team5.fandom.entity.Artist;
 import com.team5.fandom.entity.Fandom;
 import com.team5.fandom.entity.value.Level;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 
 @Getter
-@Builder
+@Builder@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FandomDto {
     private Integer fandomId;
     private String fandomName;
@@ -31,7 +31,6 @@ public class FandomDto {
     // FandomDto -> Fandom entity 변환 메서드
     private Fandom toEntity(Artist artist) {
         return Fandom.of(
-
                 fandomName,
                 fandomLevel,
                 fandomExp,

@@ -5,24 +5,17 @@ import java.time.LocalDateTime;
 import com.team5.fandom.entity.Artist;
 
 
-import lombok.Builder;
-import lombok.Getter;
-
-
+import lombok.*;
 
 
 @Getter
 @Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ArtistDto {
     private Integer artistId;
     private String artistName;
     private LocalDateTime debutDate;
-
-    private ArtistDto(Integer artistId, String artistName, LocalDateTime debutDate) {
-        this.artistId = artistId;
-        this.artistName = artistName;
-        this.debutDate = debutDate;
-    }
 
     // Entity -> Dto 변환 메서드
     public static ArtistDto toArtistDto(Artist artist) {

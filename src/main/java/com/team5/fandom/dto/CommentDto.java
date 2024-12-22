@@ -4,12 +4,13 @@ import com.team5.fandom.entity.Comment;
 import com.team5.fandom.entity.Post;
 import com.team5.fandom.entity.User;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 
 @Getter
 @Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CommentDto {
 
     private Integer commentId;
