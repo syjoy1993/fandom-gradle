@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.team5.fandom.entity.Artist;
 
-@Repository
-public interface ArtistRepository extends JpaRepository<Artist,Integer> { 
+import java.util.List;
 
+@Repository
+public interface ArtistRepository extends JpaRepository<Artist,Integer> {
+    List<Artist> findAllArtist();
+    List<Artist> findByName(String name);
 }
