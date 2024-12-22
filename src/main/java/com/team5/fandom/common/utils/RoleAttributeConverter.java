@@ -3,7 +3,9 @@ package com.team5.fandom.common.utils;
 import com.team5.fandom.entity.value.Role;
 
 import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
+@Converter
 public class RoleAttributeConverter implements AttributeConverter<Role, String> {
 
 	@Override
