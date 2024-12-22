@@ -28,8 +28,7 @@ protected void configure(HttpSecurity http) throws Exception {
         .ignoringAntMatchers("/f/c/**/p/new"); // 특정 URL CSRF 예외 처리
 }
 
-        -->
-
+    아래부분    -->
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <!-- 제목 입력 -->
         <input type="text" name="title" placeholder="제목을 입력하세요" class="title-input" required>

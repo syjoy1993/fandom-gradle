@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist,Integer> {
-    List<Artist> findByGenre(String genre);
+    //List<Artist> findByGenr(String genre);
 }
