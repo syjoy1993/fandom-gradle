@@ -34,7 +34,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity security) throws Exception {
 
         security // CSRF 설정: API 경로만 비활성화
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/login","/api/**"))
                 //CORS 설정 활성화
                 .cors(cors -> cors.configurationSource(corsConfigurationSource)); // CORS 설정 적용
         security.authorizeHttpRequests(authorizeRequests ->
@@ -51,7 +51,7 @@ public class SecurityConfig {
                 .loginProcessingUrl("/login")
                 .usernameParameter("email") // 사용자 이름 필드를 이메일로 설정
                 .passwordParameter("password") // 비밀번호 필드 설정
-                .defaultSuccessUrl("/f/c"));
+                .defaultSuccessUrl("/"));
 
         security.logout(logout -> logout.logoutSuccessUrl("/f/c"));
         //세션

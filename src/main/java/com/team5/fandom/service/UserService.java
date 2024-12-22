@@ -17,7 +17,6 @@ public class UserService {
     private final UserRepository userRepository;
 
 
-
     public Optional<UserDto> searchUserByEmail(String email) {
         return userRepository.findByEmail(email).map(UserDto::toUserDto);
     }

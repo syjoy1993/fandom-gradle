@@ -18,7 +18,7 @@ public class CommonService {
 
     private final UserRepository userRepository;
     private final FandomRepository fandomRepository;
-
+/*
     public UserDto authenticate(String email, String password) {
         // 데이터베이스에서 사용자 정보 조회
         Optional<User> optionalUser = userRepository.findByEmail(email);
@@ -28,7 +28,7 @@ public class CommonService {
             return UserDto.toUserDto(optionalUser.get()); // User 엔티티를 UserDto로 변환하여 반환
         }
         return null; // 인증 실패 시 null 반환
-    }
+    }*/
 
 
     public void registerUser(UserDto userDto) {
