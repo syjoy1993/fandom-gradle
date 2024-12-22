@@ -57,13 +57,13 @@ public class CommonController {
             return "login";
         }
     }
-    //todo : 체크 -> 맞음!
+  /*  //todo : 체크 -> 맞음!
     @GetMapping("/signup")
     public String showSignupForm(Model model) {
         model.addAttribute("regReq", new RegistryRequest());
         return "register"; // View 이름: register.html로 이동
     }
-
+*/
 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
