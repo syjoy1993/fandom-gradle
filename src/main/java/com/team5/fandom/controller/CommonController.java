@@ -27,6 +27,13 @@ public class CommonController {
     private final CommonService commonService;
     private final FandomService fandomService;
 
+
+    @GetMapping("/")
+    public String index() {
+        return "index"; // index.html 템플릿 반환
+    }
+
+
     @GetMapping("/login")
     public String getLoginPage(Model model) {
         model.addAttribute("pageTitle", "Login");
