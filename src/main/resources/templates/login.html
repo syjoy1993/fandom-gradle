@@ -77,6 +77,8 @@
                 <div class="field">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="email" required />
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
                 </div>
             </div>
             <div class="fields">

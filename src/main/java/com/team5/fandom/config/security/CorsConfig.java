@@ -21,6 +21,7 @@ public class CorsConfig {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/api/**", corsConfiguration);
+        source.registerCorsConfiguration("/login", corsConfiguration);// login 경로 CORS
 
         return source;
 

@@ -32,7 +32,7 @@ public class CommonController {
         model.addAttribute("pageTitle", "Login");
         return "login";
     }
-
+/*
     @PostMapping("/login")
     public String formLogin(
             @RequestParam("id") String email,
@@ -42,8 +42,6 @@ public class CommonController {
 
         // 사용자 인증 처리
         UserDto user = commonService.authenticate(email, password);
-
-
 
         if (user != null) {
             // 인증 성공 시 세션 생성
@@ -56,7 +54,7 @@ public class CommonController {
             model.addAttribute("error", "Invalid Email or password");
             return "login";
         }
-    }
+    }*/
   /*  //todo : 체크 -> 맞음!
     @GetMapping("/signup")
     public String showSignupForm(Model model) {
