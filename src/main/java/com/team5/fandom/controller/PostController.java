@@ -48,7 +48,7 @@ public class PostController {
 
     // 게시판 목록
     @GetMapping("/p")
-    public String getPosts(@PageableDefault(size = 7,sort = "createDate", direction = Sort.Direction.DESC) Pageable pageable,
+    public String getPosts(@PageableDefault(size = 7,sort = "createdDate", direction = Sort.Direction.DESC) Pageable pageable,
                             Model model) {
 
         Page<PostDto> postDtos = postService.getPostList(pageable);

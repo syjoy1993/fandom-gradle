@@ -1,5 +1,6 @@
 package com.team5.fandom.entity;
 
+import com.team5.fandom.common.utils.TagAttributeConverter;
 import com.team5.fandom.entity.value.Tag;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +9,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Post {
+public class Post extends AuditingFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
@@ -29,7 +30,7 @@ public class Post {
     @JoinColumn(name = "fandom_id")
     private Fandom fandom;
 
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = TagAttributeConverter.class)
     private Tag tag;
     private String img;
 
