@@ -19,7 +19,7 @@ public interface CommentRepository extends JpaRepository<Comment,Integer> {
 
     List<Comment> findAllByOrderByCommentIdDesc();
 
-
+    List<Comment> findAllByOrderByCommentIdAsc();
 
 
 }
