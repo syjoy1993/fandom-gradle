@@ -1,37 +1,42 @@
-package com.team5.fandom.config;
+package com.team5.fandom.config.security;
 
 import com.team5.fandom.security.FanUserDetails;
 import com.team5.fandom.service.UserService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
-import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.core.session.SessionRegistry;
-import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 @EnableMethodSecurity(prePostEnabled = true,securedEnabled = true)
 @EnableWebSecurity
 @Configuration
+
 public class SecurityConfig {
+
+    private final CorsConfigurationSource corsConfigurationSource;
+
+    public SecurityConfig(CorsConfigurationSource corsConfigurationSource) {
+        this.corsConfigurationSource = corsConfigurationSource;
+    }
+
+
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity security) throws Exception {
 
-        security
-                .csrf(csrf -> csrf.disable());
-                //.cors(cors -> cors.disable());
+        security // CSRF 설정: API 경로만 비활성화
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
+                //CORS 설정 활성화
+                .cors(cors -> cors.configurationSource(corsConfigurationSource)); // CORS 설정 적용
         security.authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
@@ -54,28 +59,12 @@ public class SecurityConfig {
                 .invalidSessionUrl("/login")
                 .sessionFixation().migrateSession() //로그인후 세션 변경
                 .maximumSessions(1)//한개만 유지
-                //.maxSessionsPreventsLogin(false)
-                //.sessionRegistry(sessionRegistry())
                 .expiredUrl("/login"));//만료시 이동
 
         return security.build();
 
     }
-//    @Bean
-//    ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher() {
-//        return new ServletListenerRegistrationBean<HttpSessionEventPublisher>(new HttpSessionEventPublisher());
-//    }
-//
-//    @Bean
-//    SessionRegistry sessionRegistry() {
-//        return new SessionRegistryImpl();
-//    }
-//
-//    @Bean
-//    public WebSecurityCustomizer webSecurityCustomizer() {
-//        return (web) -> web.ignoring()
-//                .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-//    }
+
 
     @Bean
     public UserDetailsService userDetailsService(UserService userService) {
@@ -89,8 +78,6 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
 
         //return NoOpPasswordEncoder.getInstance();
-
-
         return new BCryptPasswordEncoder();
     }
 }
