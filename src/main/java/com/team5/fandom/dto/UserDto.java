@@ -6,13 +6,13 @@ import com.team5.fandom.entity.value.Level;
 
 
 import com.team5.fandom.entity.value.Role;
-import lombok.Builder;
-import lombok.Getter;
-
+import lombok.*;
 
 
 @Getter
 @Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserDto {
     private Integer userId;
     private String userName;

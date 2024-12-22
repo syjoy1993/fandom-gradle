@@ -9,8 +9,8 @@ import lombok.*;
 
     @Getter
     @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @Builder
     public class RegistryRequest {
 
@@ -28,6 +28,8 @@ import lombok.*;
         private String password;
         private String fandomName;
     }
+
+
 
 
 

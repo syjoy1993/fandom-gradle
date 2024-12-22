@@ -5,13 +5,11 @@ import com.team5.fandom.entity.Post;
 import com.team5.fandom.entity.User;
 import com.team5.fandom.entity.value.Tag;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
-
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 @Getter
 public class PostDto {
