@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist,Integer> {
     List<Artist> findAllArtist();
+    List<Artist> findByName(String name);
 }
